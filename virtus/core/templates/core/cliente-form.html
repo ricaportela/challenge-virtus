@@ -1,0 +1,22 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Incluir/Alterar Cliente</title>
+</head>
+<body>
+ <h1>Incluir/Alterar Cliente</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Save</button>
+    </form>
+
+
+    {% if cliente %}
+        <a href="{% url 'excluir_cliente' cliente.id %}">Excluir</a>
+    {% endif %}
+</body>
+</html>
