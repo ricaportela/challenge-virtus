@@ -20,9 +20,6 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements-dev.txt
 ```
-## faltou validar o Form e utilizar widgets
-## mostrar os enderecos cadastrados para cada cliente no form
-
 
 
 ##License Details
