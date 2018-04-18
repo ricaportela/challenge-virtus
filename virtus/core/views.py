@@ -3,6 +3,10 @@ from .models import Cliente
 from .forms import ClienteForm
 
 
+def home(request):
+    return render(request, 'index.html')
+
+
 def listar_clientes(request):
     clientes = Cliente.objects.all()
     return render(request, 'core/clientes.html', {'clientes': clientes})
