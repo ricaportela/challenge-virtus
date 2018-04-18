@@ -1,22 +1,58 @@
+{% extends 'base.html' %}
 {% load static%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Incluir/Alterar Cliente</title>
-</head>
-<body>
- <h1>Incluir/Alterar Cliente</h1>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Save</button>
-    </form>
+{% block content %}
+
+<section>
+    <div class="content row padding-bottom-3 desktop-12 container">
+
+        <h1>Incluir/Alterar Cliente</h1>
+        <div class="desktop-6">
+            <form method="POST">
+                {% csrf_token %}
+
+                <form action="." method="post">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="form-row label-block input-text">
+                        <label for="{{ form.nomerazaosocial.id_for_label }}">{{ form.nomerazaosocial.label }}</label>
+                        {{ form.nomerazaosocial.errors }}
+                        {{ form.nomerazaosocial }}
+                    </div>
+
+                    <div class="form-row label-block input-text">
+                        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                        {{ form.email.errors }}
+                        {{ form.email }}
+                    </div>
+
+                    <div class="form-row label-block input-text">
+                        <label for="{{ form.telefone.id_for_label }}">{{ form.telefone.label }}</label>
+                        {{ form.telefone.errors }}
+                        {{ form.telefone }}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="text-center">
+                                <p class="btn-row"><input type="submit" value="Salvar"/></p>
+
+                                {% if cliente %}
+                                <p class="btn-row"><input type="submit" value="Excluir"/></p>
+                                <!--<a href="{% url 'excluir_cliente' cliente.id %}">Excluir</a>-->
+
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
 
 
-    {% if cliente %}
-        <a href="{% url 'excluir_cliente' cliente.id %}">Excluir</a>
-    {% endif %}
-</body>
-</html>
+            </form>
+        </div>
+
+
+    </div>
+</section>
+{% endblock %}
