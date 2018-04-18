@@ -1,67 +1,31 @@
-Chanlenge Virtus
+Chanllenge Virtus
 =========================
 
-PYTHON Project with Django and Django Restful Framework
+PYTHON Project com Django e Django Restful Framework
 
+## Como desenvolver?
 
-How to install in locally (supposing you have git and python >= 3.6 installed):
+1. Clone o repositório
+2. Cria um virtualenv com Python 3.6.4
+3. Ative o virtualenv
+4. Instale as dependências
+5. Configure as instâncias com o .env
+6. Execute os testes
 
 ```console
 git clone https://github.com/challenge-virtus.git
 cd challenge-virtus
 cp contrib/env-sample .env
-python3 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements-dev.txt
 ```
-
-If you want use SQLite on your dev environment, please remove DATABASE_URL from .env file.
-Otherwise fill this value with your database credentials.
-
-You can aply migrations to generate database schema:
-
-```console
-python manage.py migrate
-``` 
-
-You can also create a user:
-
-```console
-python manage.py createsuperuser
-```
-
-To run server locally (with virtualenv activated):
-
-```console
-python manager.py runserver
-```
-
-If you want populate the database with some content run: 
-
-```console
-python manage.py loaddata virtus_contents
-```
-
-To tun the tests:
-
-```console
-pytest virtus
-```
-
-If you want run your amb dev using postgres, you can install docker and run:
-
-```console
-docker run -p 5432:5432 --env POSTGRES_PASSWORD=pass --name virtus-postgres -d postgres:9
-```
-
-and add to your .env
-
-```console
-DATABASE_URL=postgres://postgres:pass@localhost:5432/postgres
-```
+## faltou validar o Form e utilizar widgets
+## mostrar os enderecos cadastrados para cada cliente no form
 
 
-#License Details
+
+##License Details
 
 The AGPL license here cover everything relate to source code.
 
